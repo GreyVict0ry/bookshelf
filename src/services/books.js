@@ -1,24 +1,23 @@
-import react from "react";
+import react, { Component } from "react";
+import { ImgBook } from "../components/imgBook";
 
-//Verificar
-/*class books{
-    constructor(props){
-        super(props);
-        this.state = {
-            books: [],
-            searchField: ''
-        }
-    }
-
-    handleSearch = (e) => {
-        this.setState({ searchField: e.target.value})
+class books extends Component{
+    state = {
+        itemsBook: 0
     }
 
     render(){
-        <div>
-            
-        </div>
+        return(
+            <div>
+                <img
+                className="d-block w-100"
+                src="https://via.placeholder.com/150x300"
+                alt="First slide"
+                />
+            </div>
+        );
     }
 }
 
-export default books;*/
+
+export default books;

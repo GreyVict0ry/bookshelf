@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { SliderBook } from './components/sliderBook';
+import SliderBook from './components/sliderBook';
 import SearchArea from './components/searchArea';
 import bookService from './services/bookService';
 // import { BrowserRouter as Router,  Switch,  Route,  Link } from "react-router-dom";

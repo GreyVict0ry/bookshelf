@@ -1,6 +1,9 @@
-import 'bootstrap/dist/css/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-export function ImgBook(){
+export function ImgBook({infoBook}){
+    //verificar->Add the URL of the objects's image to the code
+    // const imgURL = infoBook.volumenInfo.imageLinks.smallThumbnail.valueOf();
+    // const bookTitle = infoBook.volumenInfo.title.valueOf();
     return(
         <div className="col-1">
             <img

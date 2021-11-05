@@ -18,7 +18,7 @@ const SearchArea = (props) => {
 }
 
 function testeoSA () {
-    console.log(bookService.getSearch());
+    console.log(bookService.getSearch("romance"));
   }
 
 export default SearchArea;

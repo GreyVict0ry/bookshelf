@@ -1,17 +1,20 @@
 import { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import books from '../services/books';
+import Books from '../services/books';
 import bookService from '../services/bookService';
 import { ImgBook } from "./imgBook"; 
 
 
 class SliderBook extends Component{
 
-  state= {
-    books:[]
+  constructor(){
+    super();
+    this.state= {
+      books:[]
+    }
   }
 
-  searchBooks = () => {
+  componentDidMount() {
     bookService.getSearch("romance")
       .then(
         (data)=>{
@@ -30,8 +33,8 @@ class SliderBook extends Component{
         <Carousel.Item>
           <div className="row col-12">
             {this.state.books.map(
-              (book)=>{
-                return <books/>
+              (book,key)=>{
+                return <Books key={book.id} title={book.volumeInfo.title} thumbnail={book.volumeInfo.imageLinks.smallThumbnail}/>
               }
             )}
           </div>

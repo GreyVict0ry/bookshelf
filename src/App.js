@@ -6,7 +6,7 @@ import SearchArea from './components/searchArea';
 import bookService from './services/bookService';
 // import { BrowserRouter as Router,  Switch,  Route,  Link } from "react-router-dom";
 
-let genders = ["Romance", "Aventura", "Accion"]
+let genders = ["Romance", "Aventura", "Action"]
 
 function App() {
   return (
@@ -27,6 +27,10 @@ function App() {
         <div>{genders[1]}</div>
         <div className="col-12">
           <SliderBook gender={genders[1]}/>
+        </div>
+        <div>{genders[2]}</div>
+        <div className="col-12">
+          <SliderBook gender={genders[2]}/>
         </div>
       </main>
     </div>

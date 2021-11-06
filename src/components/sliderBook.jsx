@@ -12,10 +12,11 @@ class SliderBook extends Component{
     this.state= {
       books:[]
     }
+    this.shelfSize = 12
   }
 
   componentDidMount() {
-    bookService.getSearch("romance")
+    bookService.getSearch(this.props.gender)
       .then(
         (data)=>{
           this.setState({
@@ -23,210 +24,31 @@ class SliderBook extends Component{
           });
         }
       );
-    console.log(bookService.getSearch("romance"));
-    console.log(this.state);
+  }
+
+  createCarouselItem(){
+    let shelf = [];
+    let lenghBooks = this.state.books.length
+    let heightBookShelf = Math.ceil( lenghBooks/this.shelfSize);
+    for (let j = 0; j < heightBookShelf; j++) {
+      let booksInShelf = [];
+      let bookInHand = j * this.shelfSize
+      for (let i = 0; i < this.shelfSize || i < ((bookInHand)-lenghBooks) ; i++) {
+        booksInShelf.push(<Books key={this.state.books[i+(bookInHand)].id} 
+                                 title={this.state.books[i+(bookInHand)].volumeInfo.title} 
+                                 thumbnail={this.state.books[i+(bookInHand)].volumeInfo.imageLinks.smallThumbnail}/>)
+      }
+      shelf.push(<Carousel.Item><div className="row col-12">{booksInShelf}</div></Carousel.Item>); 
+      
+    }
+      return shelf
   }
 
   render(){
     return(
-      <Carousel>
-        <Carousel.Item>
-          <div className="row col-12">
-            {this.state.books.map(
-              (book,key)=>{
-                return <Books key={book.id} title={book.volumeInfo.title} thumbnail={book.volumeInfo.imageLinks.smallThumbnail}/>
-              }
-            )}
-          </div>
-          <Carousel.Caption>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="row col-12">
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-          </div>
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="row col-12">
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-            <div className="col-1">
-              <img
-                className="d-block w-100"
-                src="https://via.placeholder.com/150x300"
-                alt="Second slide"
-              />
-            </div>
-          </div>
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+      <Carousel className="" pause={'hover'} >
+        {this.createCarouselItem()}
       </Carousel>
-  
     )
   }
 }

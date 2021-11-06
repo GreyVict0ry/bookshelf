@@ -19,7 +19,7 @@ const bookService = {
     //Function thar search book who contain the text
     getSearch: (textSearch) => new Promise(
         (resolve,reject) => {
-            API.get(`?q=${textSearch}`)
+            API.get(`?q=${textSearch}&maxResults=36`)
             .then(
                 res => resolve(res.data.items)
             ).catch(

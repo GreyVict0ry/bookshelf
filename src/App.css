@@ -39,6 +39,15 @@
   color: #61dafb;
 }
 
+.carousel-control-next{
+  background-color:#b4c8f0 !important;
+  width: 5% !important;
+}
+.carousel-control-prev{
+  background-color:#b4c8f0 !important;
+  width: 5% !important;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -51,3 +60,4 @@
 .formSearch{
   max-height: auto;
 }
+

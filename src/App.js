@@ -6,24 +6,27 @@ import SearchArea from './components/searchArea';
 import bookService from './services/bookService';
 // import { BrowserRouter as Router,  Switch,  Route,  Link } from "react-router-dom";
 
+let genders = ["Romance", "Aventura", "Accion"]
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div className="row col-12">
+        <div className="row col-10">
+          {/* verificar-> */}
           <a className="col-2" href="#" onClick={testeo}>logo</a>
           <SearchArea className="col-8"/>
           <div className="col-2">user</div>
         </div>
       </header>
       <main className="App-body">
-        <div>Favorits</div>
+        <div>{genders[0]}</div>
         <div className="col-12">
-          <SliderBook />
+          <SliderBook gender={genders[0]}/>
         </div>
-        <div>Gender</div>
+        <div>{genders[1]}</div>
         <div className="col-12">
-          <SliderBook />
+          <SliderBook gender={genders[1]}/>
         </div>
       </main>
     </div>
@@ -31,7 +34,7 @@ function App() {
 }
 
 function testeo () {
-  console.log(bookService.getAll());
+  
 }
 
 export default App;

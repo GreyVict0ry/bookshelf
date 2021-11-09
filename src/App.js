@@ -8,6 +8,15 @@ import bookService from './services/bookService';
 
 let genders = ["Romance", "Aventura", "Action"]
 
+function bookseller(array) {
+  let listSliders = [];
+  for (let i = 0; i < array.length; i++) {
+    listSliders.push(<div>{genders[i]}</div>);
+    listSliders.push(<div className="col-12"><SliderBook gender={genders[i]}/></div>);
+  }
+  return listSliders;
+}
+
 function App() {
   return (
     <div className="App">
@@ -20,18 +29,7 @@ function App() {
         </div>
       </header>
       <main className="App-body">
-        <div>{genders[0]}</div>
-        <div className="col-12">
-          <SliderBook gender={genders[0]}/>
-        </div>
-        <div>{genders[1]}</div>
-        <div className="col-12">
-          <SliderBook gender={genders[1]}/>
-        </div>
-        <div>{genders[2]}</div>
-        <div className="col-12">
-          <SliderBook gender={genders[2]}/>
-        </div>
+        {bookseller(genders)}
       </main>
     </div>
   );

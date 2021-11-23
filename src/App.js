@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SliderBook from './components/sliderBook';
 import SearchArea from './components/searchArea';
 import bookService from './services/bookService';
-// import { BrowserRouter as Router,  Switch,  Route,  Link } from "react-router-dom";
+import DetailsBook from './components/detailsBook';
+import { BrowserRouter as Router, Routes as Switch,  Route,  Link } from "react-router-dom";
 
 let genders = ["Romance", "Aventura", "Action"]
 
@@ -19,19 +20,22 @@ function bookseller(array) {
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="row col-10">
-          {/* verificar-> */}
-          <a className="col-2" href="#" onClick={testeo}>logo</a>
-          <SearchArea className="col-8"/>
-          <div className="col-2">user</div>
-        </div>
-      </header>
-      <main className="App-body">
-        {bookseller(genders)}
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header row col-10">
+            {/* verificar-> */}
+            <a className="col-2" href="#" onClick={testeo}>logo</a>
+            <SearchArea className="col-8"/>
+            <image className="col-2" alt="user"/>
+        </header>
+        <main className="App-body">
+          <Switch>
+            <Route path="/" element={bookseller(genders)}/>
+            <Route path="/books/:bookId" element={<DetailsBook/>}/>
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
 }
 

@@ -6,7 +6,7 @@ class books extends Component{
         return(
             <div className="col-1">
                 <img
-                className="d-block w-100"
+                className="d-block w-100 "
                 // verificar->
                 onClick={() => {console.log('ima clicking MATE');}}
                 src={this.props.thumbnail}

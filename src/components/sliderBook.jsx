@@ -46,7 +46,7 @@ class SliderBook extends Component{
 
   render(){
     return(
-      <Carousel className="" pause={'hover'} >
+      <Carousel className="" interval={null} >
         {this.createCarouselItem()}
       </Carousel>
     )

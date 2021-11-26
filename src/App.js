@@ -24,14 +24,16 @@ function App() {
       <div className="App">
         <header className="App-header row col-10">
             {/* verificar-> */}
-            <a className="col-2" href="#" onClick={testeo}>logo</a>
+            <a className="col-2" href="/" onClick={testeo}>logo</a>
             <SearchArea className="col-8"/>
             <image className="col-2" alt="user"/>
         </header>
         <main className="App-body">
           <Switch>
             <Route path="/" element={bookseller(genders)}/>
-            <Route path="/books/:bookId" element={<DetailsBook/>}/>
+            <Route path="/books/:idBook " element={()=>{
+              return <DetailsBook/>
+            }}/>
           </Switch>
         </main>
       </div>

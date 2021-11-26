@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 //Create the complement who contain the relevant book's information
 export function DetailsBook(){
     return(
-        <Link to={this.props.key}>
+        <div>
+            <h1>Hola mundo</h1>
             <img src=""/>
             <div className="col-10">
                 <div>{this.props.title}</div>
@@ -14,7 +15,7 @@ export function DetailsBook(){
                 <div>genero: {this.props.categories}</div>
                 <div>descripcion: {this.props.description}</div>
             </div>
-        </Link>
+        </div>
     )
 }
 

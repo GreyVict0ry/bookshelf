@@ -35,8 +35,9 @@ class SliderBook extends Component{
       let bookInHand = j * this.shelfSize
       for (let i = 0; i < this.shelfSize || i < ((bookInHand)-lenghBooks) ; i++) {
         booksInShelf.push(<Books key={this.state.books[i+(bookInHand)].id} 
+                                 idBook={this.state.books[i+(bookInHand)].id}
                                  title={this.state.books[i+(bookInHand)].volumeInfo.title} 
-                                 thumbnail={this.state.books[i+(bookInHand)].volumeInfo.imageLinks.smallThumbnail}/>)
+                                 thumbnail={this.state.books[i+(bookInHand)].volumeInfo.imageLinks.smallThumbnail}/>);
       }
       shelf.push(<Carousel.Item><div className="row col-12">{booksInShelf}</div></Carousel.Item>); 
       

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SliderBook from './components/sliderBook';
+import Bookseller from './components/bookseller';
 import SearchArea from './components/searchArea';
 import bookService from './services/bookService';
 import DetailsBook from './components/detailsBook';
@@ -9,20 +9,11 @@ import { BrowserRouter as Router, Routes as Switch,  Route,  Link } from "react-
 
 let genders = ["Romance", "Aventura", "Action"]
 
-function bookseller(array) {
-  let listSliders = [];
-  for (let i = 0; i < array.length; i++) {
-    listSliders.push(<div>{genders[i]}</div>);
-    listSliders.push(<div className="col-12"><SliderBook gender={genders[i]}/></div>);
-  }
-  return listSliders;
-}
-
 function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header row col-10">
+        <header className="App-header row col-12">
             {/* verificar-> */}
             <a className="col-2" href="/" onClick={testeo}>logo</a>
             <SearchArea className="col-8"/>
@@ -30,10 +21,10 @@ function App() {
         </header>
         <main className="App-body">
           <Switch>
-            <Route path="/" element={bookseller(genders)}/>
-            <Route path="/books/:idBook " element={()=>{
-              return <DetailsBook/>
-            }}/>
+            <Route path="/" element={<Bookseller key={"BS000001"}
+                                                  genderslist={genders}/>}/>
+            {/* <Route path="/books/:key" element={<DetailsBook key="1" title="test" author="test" publisher="test" publishedDate="test" categories="test" description="test"/>}/> */}
+            <Route path="/books/:key" element={<DetailsBook/>}/>
           </Switch>
         </main>
       </div>

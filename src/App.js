@@ -23,7 +23,7 @@ function App() {
           <Switch>
             <Route path="/" element={<Bookseller key={"BS000001"}
                                                   genderslist={genders}/>}/>
-            <Route path="/books/:idBook" element={<DetailsBook bookId="lmao"/>}/>
+            <Route path="/books/:idBook" element={<DetailsBook/>}/>
           </Switch>
         </main>
       </div>

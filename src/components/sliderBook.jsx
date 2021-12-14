@@ -33,11 +33,18 @@ class SliderBook extends Component{
     for (let j = 0; j < heightBookShelf; j++) {
       let booksInShelf = [];
       let bookInHand = j * this.shelfSize
+      let bookImagen = ""
       for (let i = 0; i < this.shelfSize || i < ((bookInHand)-lenghBooks) ; i++) {
+
+        if (this.state.books[i+(bookInHand)].volumeInfo.imageLinks !== undefined){
+          bookImagen = `${this.state.books[i+(bookInHand)].volumeInfo.imageLinks.smallThumbnail}`;
+        }
+
         booksInShelf.push(<Books key={Math.random()}
                                  idBook={this.state.books[i+(bookInHand)].id}
                                  title={this.state.books[i+(bookInHand)].volumeInfo.title} 
-                                 thumbnail={this.state.books[i+(bookInHand)].volumeInfo.imageLinks.smallThumbnail}/>);
+                                 thumbnail={bookImagen}/>
+        );
       }
       shelf.push(<Carousel.Item><div className="row col-12">{booksInShelf}</div></Carousel.Item>); 
       

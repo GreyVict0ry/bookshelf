@@ -30,11 +30,9 @@ const bookService = {
     //Function receives a id and that return the book with that id.
     getById: (id) => new Promise(
         (resolve, reject) => {
-            API.get(BOOK_ENDPOINTS.LIST_BOOK + "/volumes/" + id)
+            API.get(`/${id}`)
             .then(
-                res => res.data.data.book
-            ).then(
-                data => resolve(data)
+                res =>resolve(res.data.items)
             ).catch(
                 err => reject(err)
             )

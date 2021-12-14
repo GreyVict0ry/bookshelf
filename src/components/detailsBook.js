@@ -1,34 +1,44 @@
+import { Component } from "react";
 import { useParams } from "react-router-dom";
 import bookService from "../services/bookService";
 
 //Create the complement who contain the relevant book's information
-export function DetailsBook(props){
-    let idBook = useParams().idBook;
+class DetailsBook extends Component{
+    constructor(){
+        super();
+        this.state= {
+          books:[]
+        }
+        this.idBook = this.props.match.params.idBook;
 
-    // bookService.getById(idBook)
-    //     .then(
-    //         (data)=>{
-    //             this.setState({
-    //             books: data
-    //             });
-    //         }
-    //     );
+      }
+    
+    componentDidMount() {
+        bookService.getSearch(this.props.match.params.idBook)
+            .then(
+                (data)=>{
+                    this.setState({
+                    books: data
+                });
+            }
+        );
+    }
 
-    console.log(idBook);
-    return(
-        <div>
-            <h1>{idBook}</h1>
-            <img src=""/>
-            <div className="col-10">
-                <div>{props.title}</div>
-                <div>autor: {props.author}</div>
-                <div>editorial: {props.publisher}</div>
-                <div>fecha: {props.publishedDate}</div>
-                <div>genero: {props.categories}</div>
-                <div>descripcion: {props.description}</div>
+    render(){
+        return(
+            <div>
+                <h1>{this.idBook}</h1>
+                {/* <img src=""/> */}
+                <div className="col-10">
+                    <div>{this.state.books[0].volumeInfo.title}</div>
+                    <div>autor: {this.state.books[0].volumeInfo.authors}</div>
+                    <div>editorial: {this.state.books[0].volumeInfo.publisher}</div>
+                    <div>año: {this.state.books[0].volumeInfo.publishedDate}</div>
+                    <div>descripcion: {this.state.books[0].volumeInfo.description}</div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default DetailsBook;
